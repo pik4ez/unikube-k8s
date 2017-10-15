@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: unikube-postgres
+  labels:
+    service: unikube
+    app: postgres
+spec:
+  revisionHistoryLimit: 3
+  replicas: 1
+  template:
+    metadata:
+      name: unikube-postgres
+      labels:
+        service: unikube
+        app: postgres
+    spec:
+      containers:
+        - name: unikube-postgres
+          image: postgres:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: 10m
+              memory: 80Mi
+            limits:
+              cpu: 50m
+              memory: 200Mi
