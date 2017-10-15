@@ -3,4 +3,4 @@ Kubernetes setup for UniKube game.
 
 # Deploy resources
 
-  make deploy
+    make deploy
